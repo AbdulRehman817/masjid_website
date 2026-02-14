@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const PrayerTimeSchema = new mongoose.Schema({
     date: {
@@ -20,4 +20,4 @@ const PrayerTimeSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PrayerTime', PrayerTimeSchema);
+export default mongoose.model('PrayerTime', PrayerTimeSchema);

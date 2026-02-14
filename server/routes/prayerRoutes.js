@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const prayerController = require('../controllers/prayerController');
+import { getPrayerTimings, updatePrayerTimings } from '../controllers/prayerController.js';
 
-router.get('/', prayerController.getPrayerTimings);
-router.post('/', prayerController.updatePrayerTimings);
+router.get('/prayers', getPrayerTimings);
+router.post('/prayers', updatePrayerTimings);
 
-module.exports = router;
+
+export default router;

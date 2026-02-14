@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const announcementController = require('../controllers/announcementController');
+import { getAnnouncements, createAnnouncement } from '../controllers/announcementController.js';
 
-router.get('/', announcementController.getAnnouncements);
-router.post('/', announcementController.createAnnouncement);
+router.get('/announcements', getAnnouncements);
+router.post('/announcements', createAnnouncement);
 
-module.exports = router;
+export default router;

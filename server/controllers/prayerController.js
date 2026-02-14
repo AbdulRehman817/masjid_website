@@ -1,7 +1,7 @@
-const PrayerTiming = require('../models/PrayerTiming');
 
+import { PrayerTiming } from "../models/PrayerTiming.js";
 // Get current prayer timings (Active Daily or Specific Date)
-exports.getPrayerTimings = async (req, res) => {
+const getPrayerTimings = async (req, res) => {
     try {
         // Logic: Find active daily timing or today's specific timing
         // For simplicity, returning the most recent active one
@@ -13,7 +13,7 @@ exports.getPrayerTimings = async (req, res) => {
 };
 
 // Create or Update timings
-exports.updatePrayerTimings = async (req, res) => {
+const updatePrayerTimings = async (req, res) => {
     try {
         const newTiming = new PrayerTiming(req.body);
         const savedTiming = await newTiming.save();
@@ -22,3 +22,4 @@ exports.updatePrayerTimings = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
+export { getPrayerTimings, updatePrayerTimings };

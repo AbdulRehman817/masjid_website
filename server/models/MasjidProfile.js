@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const masjidProfileSchema = new mongoose.Schema({
     name: { type: String, required: true, default: 'Masjid Name' },
@@ -22,4 +22,4 @@ const masjidProfileSchema = new mongoose.Schema({
     qiblaDirection: { type: String } // Could be degrees or descriptive
 }, { timestamps: true });
 
-module.exports = mongoose.model('MasjidProfile', masjidProfileSchema);
+export const MasjidProfile = mongoose.model('MasjidProfile', masjidProfileSchema);

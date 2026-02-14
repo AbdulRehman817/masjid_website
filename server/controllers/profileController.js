@@ -1,7 +1,7 @@
-const MasjidProfile = require('../models/MasjidProfile');
+import { MasjidProfile } from '../models/MasjidProfile.js';
 
 // Get Profile
-exports.getProfile = async (req, res) => {
+const getProfile = async (req, res) => {
     try {
         const profile = await MasjidProfile.findOne();
         res.json(profile || {});
@@ -11,7 +11,7 @@ exports.getProfile = async (req, res) => {
 };
 
 // Update Profile (Create if not exists)
-exports.updateProfile = async (req, res) => {
+const updateProfile = async (req, res) => {
     try {
         let profile = await MasjidProfile.findOne();
         if (profile) {
@@ -26,3 +26,4 @@ exports.updateProfile = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
+export { getProfile, updateProfile };

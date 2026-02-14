@@ -1,7 +1,7 @@
-const Announcement = require('../models/Announcement');
+import { Announcement } from '../models/Announcement.js';
 
 // Get all active announcements
-exports.getAnnouncements = async (req, res) => {
+const getAnnouncements = async (req, res) => {
     try {
         const announcements = await Announcement.find({ isActive: true }).sort({ date: -1 });
         res.json(announcements);
@@ -11,7 +11,7 @@ exports.getAnnouncements = async (req, res) => {
 };
 
 // Create a new announcement
-exports.createAnnouncement = async (req, res) => {
+const createAnnouncement = async (req, res) => {
     try {
         const newAnnouncement = new Announcement(req.body);
         const savedAnnouncement = await newAnnouncement.save();
@@ -20,3 +20,4 @@ exports.createAnnouncement = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
+export { getAnnouncements, createAnnouncement };

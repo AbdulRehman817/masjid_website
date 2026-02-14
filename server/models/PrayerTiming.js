@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const prayerTimingSchema = new mongoose.Schema({
   // 'daily' for standard days, 'ramadan' for Ramadan specific overrides
@@ -17,13 +17,13 @@ const prayerTimingSchema = new mongoose.Schema({
   maghrib: { type: String, required: true },
   isha: { type: String, required: true },
   jummah: { type: String }, // Specifically for Friday (Jumu'ah)
-  
+
   // Ramadan specific
   sehri: { type: String },
   iftar: { type: String },
-  
+
   // Meta
   isActive: { type: Boolean, default: true }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PrayerTiming', prayerTimingSchema);
+export const PrayerTiming = mongoose.model('PrayerTiming', prayerTimingSchema);
