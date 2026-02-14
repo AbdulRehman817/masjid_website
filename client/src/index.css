@@ -1,13 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 
-body {
-  @apply bg-background text-gray-800 font-sans antialiased;
+@theme {
+  /* 
+     Warm Minimalist Palette
+     "Cozy, Welcoming, Professional"
+  */
+
+  --color-primary: #1E293B;
+  /* Slate 800 - Softer than pure black/navy */
+  --color-primary-dark: #0F172A;
+
+  --color-secondary: #C2A15D;
+  /* Muted Gold - Warmer */
+
+  --color-accent: #F9F7F2;
+  /* Warm Cream/Off-White Background */
+  --color-accent-secondary: #EBE9E4;
+  /* Darker Cream for sections */
+
+  --color-surface: #FFFFFF;
+
+  --color-text-main: #1E293B;
+  --color-text-light: #64748B;
+  --color-text-muted: #94A3B8;
+
+  /* Functional Colors */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #2563EB;
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-arabic: 'Amiri', serif;
+
+  --animate-fade-in: fadeIn 0.8s ease-out;
+  --animate-slide-up: slideUp 0.8s ease-out forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }
 
-.font-arabic {
-  font-family: 'Noto Naskh Arabic', serif;
+@layer utilities {
+  .soft-shadow {
+    box-shadow: 0 4px 20px -2px rgba(30, 41, 59, 0.08);
+    /* Warmer shadow */
+  }
+
+  .card-rounded {
+    border-radius: 12px;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-bg-soft {
+    background-color: #1E293B;
+    color: #FFFFFF;
+  }
+
+  .text-gradient-gold {
+    color: var(--color-secondary);
+  }
+
+  .islamic-pattern-bg {
+    background-color: var(--color-accent);
+    /* Subtle geometric pattern */
+    background-image:
+      linear-gradient(30deg, #EBE9E4 12%, transparent 12.5%, transparent 87%, #EBE9E4 87.5%, #EBE9E4),
+      linear-gradient(150deg, #EBE9E4 12%, transparent 12.5%, transparent 87%, #EBE9E4 87.5%, #EBE9E4),
+      linear-gradient(30deg, #EBE9E4 12%, transparent 12.5%, transparent 87%, #EBE9E4 87.5%, #EBE9E4),
+      linear-gradient(150deg, #EBE9E4 12%, transparent 12.5%, transparent 87%, #EBE9E4 87.5%, #EBE9E4),
+      linear-gradient(60deg, #EBE9E477 25%, transparent 25.5%, transparent 75%, #EBE9E477 75%, #EBE9E477),
+      linear-gradient(60deg, #EBE9E477 25%, transparent 25.5%, transparent 75%, #EBE9E477 75%, #EBE9E477);
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+    opacity: 0.4;
+  }
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-accent);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.hero-bg-soft h1,
+.hero-bg-soft p {
+  color: #FFFFFF;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-arabic);
 }

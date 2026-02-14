@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'http://localhost:5000/api', // Adjust if deployed
+    baseURL: 'http://localhost:3000/api/v1', // Updated to match server v1 routes
 });
 
 export const fetchPrayerTimings = () => API.get('/prayers');

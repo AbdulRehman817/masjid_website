@@ -27,18 +27,18 @@ i18n
                     }
                 }
             },
-            ur: {
+            ar: {
                 translation: {
                     nav: {
-                        home: 'گھر',
-                        prayers: 'نماز کے اوقات',
-                        announcements: 'خبریں',
-                        about: 'ہمارے بارے میں',
-                        contact: 'رابطہ'
+                        home: 'الرئيسية',
+                        prayers: 'أوقات الصلاة',
+                        announcements: 'الإعلانات',
+                        about: 'من نحن',
+                        contact: 'اتصل بنا'
                     },
                     hero: {
-                        welcome: 'ہماری مسجد میں خوش آمدید',
-                        subtitle: 'امن، دعا اور برادری کی جگہ۔'
+                        welcome: 'مرحباً بكم في مسجد النور',
+                        subtitle: 'ملاذ للسلام والصلاة والتواصل المجتمعي.'
                     }
                 }
             }

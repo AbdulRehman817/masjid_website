@@ -1,100 +1,90 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Compass } from 'lucide-react';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaParking, FaBus, FaCompass } from 'react-icons/fa';
 
 const Contact = () => {
-    // Dummy handler for form
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert("Thank you! Your message has been sent.");
-    };
-
     return (
-        <div className="max-w-6xl mx-auto p-8">
-            <h1 className="text-4xl font-bold text-center mb-10 text-primary">Contact & Location</h1>
+        <div className="bg-accent min-h-screen pb-20">
+            {/* Header */}
+            <div className="bg-primary text-white py-16 text-center">
+                <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Contact Us</h1>
+                <p className="text-xl opacity-90">We are here to answer any questions you may have.</p>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="max-w-7xl mx-auto px-6 mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {/* Contact Info & Form */}
-                <div className="space-y-8">
+                <div className="space-y-12">
                     {/* Info Cards */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="bg-white p-5 rounded-xl shadow-md flex items-center space-x-3">
-                            <MapPin className="text-red-500" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                            <div className="bg-accent p-3 rounded-lg text-primary text-xl"><FaMapMarkerAlt /></div>
                             <div>
-                                <h3 className="font-semibold">Address</h3>
-                                <p className="text-sm text-gray-600">123 Street Name, City, Country</p>
+                                <h3 className="font-bold text-primary mb-1">Visit Us</h3>
+                                <p className="text-gray-600 text-sm">123 Masjid Road,<br />London, UK</p>
                             </div>
                         </div>
-                        <div className="bg-white p-5 rounded-xl shadow-md flex items-center space-x-3">
-                            <Phone className="text-green-500" />
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                            <div className="bg-accent p-3 rounded-lg text-primary text-xl"><FaPhoneAlt /></div>
                             <div>
-                                <h3 className="font-semibold">Phone</h3>
-                                <p className="text-sm text-gray-600">+1 234 567 890</p>
-                            </div>
-                        </div>
-                        <div className="bg-white p-5 rounded-xl shadow-md flex items-center space-x-3">
-                            <Mail className="text-blue-500" />
-                            <div>
-                                <h3 className="font-semibold">Email</h3>
-                                <p className="text-sm text-gray-600">contact@masjid.com</p>
-                            </div>
-                        </div>
-                        <div className="bg-white p-5 rounded-xl shadow-md flex items-center space-x-3">
-                            <Compass className="text-purple-500" />
-                            <div>
-                                <h3 className="font-semibold">Qibla Direction</h3>
-                                <p className="text-sm text-gray-600">118.5° South East</p>
+                                <h3 className="font-bold text-primary mb-1">Call Us</h3>
+                                <p className="text-gray-600 text-sm">+44 123 456 7890<br />Mon-Fri, 9am-5pm</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Contact Form */}
-                    <div className="bg-white p-8 rounded-2xl shadow-lg">
-                        <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 p-2 border" placeholder="Your Name" required />
+                    {/* Additional Info (Parking etc) */}
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 className="text-xl font-bold text-primary font-serif mb-6">Location Details</h3>
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-4 text-gray-700">
+                                <FaParking className="text-2xl text-secondary" />
+                                <span>Free parking available on site (50 spaces).</span>
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 p-2 border" placeholder="you@example.com" required />
+                            <div className="flex items-center gap-4 text-gray-700">
+                                <FaBus className="text-2xl text-secondary" />
+                                <span>Bus Stop (Route 42) directly outside.</span>
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 p-2 border" rows="4" placeholder="Your message..." required></textarea>
+                            <div className="flex items-center gap-4 text-gray-700">
+                                <FaCompass className="text-2xl text-secondary" />
+                                <span>Qibla Direction: 119° South-East</span>
                             </div>
-                            <button type="submit" className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark transition-colors font-semibold">
-                                Send Message
-                            </button>
-                        </form>
+                        </div>
                     </div>
+
+                    {/* Form */}
+                    <form className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
+                        <h3 className="text-2xl font-bold text-primary font-serif mb-6">Send a Message</h3>
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                                <input type="text" className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-0 outline-none transition-colors" placeholder="John Doe" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-0 outline-none transition-colors" placeholder="john@example.com" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-0 outline-none transition-colors" placeholder="How can we help?"></textarea>
+                            </div>
+                            <button className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary-dark transition-colors shadow-lg">
+                                Send Message <FaEnvelope className="inline ml-2" />
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
-                {/* Map & Parking */}
-                <div className="space-y-8">
-                    {/* Google Map Embed */}
-                    <div className="h-96 w-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-100">
-                        {/* Replace src with actual Google Maps Embed URL */}
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.7281066703!2d-0.24168153066420364!3d51.5287718408761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1652278456245!5m2!1sen!2s"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen=""
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Masjid Location"
-                        ></iframe>
-                    </div>
-
-                    {/* Parking Info */}
-                    <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                        <h3 className="text-xl font-bold text-blue-800 mb-2">Parking Information</h3>
-                        <p className="text-blue-700">
-                            Free parking is available on the main street after 6 PM.
-                            We also have a dedicated parking lot at the rear of the building (approx. 20 spaces) for disabled and elderly visitors.
-                        </p>
-                    </div>
+                {/* Map */}
+                <div className="h-[600px] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl relative">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.7281066703!2d-0.24168153066420364!3d51.5287718408761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1652278456245!5m2!1sen!2s"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        title="Location Map"
+                        className="opacity-90 grayscale hover:grayscale-0 transition-all duration-700"
+                    ></iframe>
                 </div>
             </div>
         </div>
