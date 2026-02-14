@@ -12,13 +12,19 @@ function App() {
       <div className="flex flex-col min-h-screen font-sans text-gray-900 bg-background">
         <Navbar />
         <main className="flex-grow">
+          import PrayerTimes from './components/PrayerTimes';
+          import Announcements from './components/Announcements';
+          import MasjidProfile from './pages/MasjidProfile';
+          import Contact from './pages/Contact';
+
+          // ... (previous imports if any, keeping Navbar/Footer etc)
+
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Add more routes here as we implement pages */}
-            <Route path="/prayers" element={<div className="p-10 text-center">Prayer Times Page (Coming Soon)</div>} />
-            <Route path="/announcements" element={<div className="p-10 text-center">Announcements Page (Coming Soon)</div>} />
-            <Route path="/about" element={<div className="p-10 text-center">About Page (Coming Soon)</div>} />
-            <Route path="/contact" element={<div className="p-10 text-center">Contact Page (Coming Soon)</div>} />
+            <Route path="/prayers" element={<PrayerTimes />} />
+            <Route path="/announcements" element={<Announcements />} />
+            <Route path="/about" element={<MasjidProfile />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

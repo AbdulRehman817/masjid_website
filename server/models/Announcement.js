@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const AnnouncementSchema = new mongoose.Schema({
+const announcementSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -11,17 +11,22 @@ const AnnouncementSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['general', 'event', 'alert'],
+        enum: ['event', 'news', 'alert', 'general'],
         default: 'general'
     },
     date: {
         type: Date,
         default: Date.now
     },
-    active: {
+    priority: {
+        type: String,
+        enum: ['low', 'medium', 'high'],
+        default: 'medium'
+    },
+    isActive: {
         type: Boolean,
         default: true
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Announcement', AnnouncementSchema);
+module.exports = mongoose.model('Announcement', announcementSchema);

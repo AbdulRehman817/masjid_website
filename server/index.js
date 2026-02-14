@@ -16,6 +16,14 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/masjid_app'
     .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
+const prayerRoutes = require('./routes/prayerRoutes');
+const announcementRoutes = require('./routes/announcementRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+
+app.use('/api/prayers', prayerRoutes);
+app.use('/api/announcements', announcementRoutes);
+app.use('/api/profile', profileRoutes);
+
 app.get('/', (req, res) => {
     res.send('Masjid App API is running');
 });
